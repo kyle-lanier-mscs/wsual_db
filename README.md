@@ -1,7 +1,7 @@
 # WSU_ALDB
 WSU Applied Learning Database
-[![Run on Repl.it](https://repl.it/badge/github/kyle_lanier/wsual_db)](https://repl.it/github/kyle_lanier/wsual_db)
-![Build Status](https://github.com/kyle-lanier-mscs/wsual_db/workflows/Python%20application/badge.svg?branch=master)
+[![Run on Repl.it](https://repl.it/badge/github/kyle_lanier/wsual_db)](https://repl.it/github/kyle-lanier-mscs/wsual_db)
+![Python application](https://github.com/kyle-lanier-mscs/wsual_db/workflows/Python%20application/badge.svg?branch=master)
 ![Coverage](https://github.com/kyle-lanier-mscs/wsual_db/blob/master/resources/coverage.svg)
 
 * This repository represents the Wichita State University Applied Learning database
