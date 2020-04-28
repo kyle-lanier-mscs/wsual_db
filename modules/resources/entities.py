@@ -39,11 +39,11 @@ SKILLS = {
 
 PROJECTS = {
     'Projects': [
-        ('Technical Support', 'Support', 5, True, 5),
-        ('Test Engineering', 'Engineering', 4, True, 1),
-        ('Customer Service', 'Support', 20, False, 4),
-        ('Data Analytics', 'Analytics', 2, True, 2),
-        ('Cloud Services', 'Cloud', 24, True, 3)
+        ('Technical Support', 'Support', 5, 1, 5),
+        ('Test Engineering', 'Engineering', 4, 1, 1),
+        ('Customer Service', 'Support', 20, 0, 4),
+        ('Data Analytics', 'Analytics', 2, 1, 2),
+        ('Cloud Services', 'Cloud', 24, 1, 3)
     ]
 }
 
