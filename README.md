@@ -1,11 +1,11 @@
 # WSU_ALDB
 WSU Applied Learning Database
-[![Run on Repl.it](https://repl.it/badge/github/WSUCS665/WSU_ALDB)](https://repl.it/github/WSUCS665/WSU_ALDB)
-![Build Status](https://github.com/WSUCS665/WSU_ALDB/workflows/Python%20application/badge.svg?branch=dev)
-![Coverage](https://github.com/WSUCS665/WSU_ALDB/blob/dev/resources/coverage.svg)
+[![Run on Repl.it](https://repl.it/badge/github/kyle_lanier/wsual_db)](https://repl.it/github/kyle_lanier/wsual_db)
+![Build Status](https://github.com/kyle-lanier-mscs/wsual_db/workflows/Python%20application/badge.svg?branch=master)
+![Coverage](https://github.com/kyle-lanier-mscs/wsual_db/blob/master/resources/coverage.svg)
 
 * This repository represents the Wichita State University Applied Learning database
-* This repository is front-ended by [Repl.it](https://WSUALDB.wsucs665.repl.run)
+* This repository is front-ended by [Repl.it](https://wsualdb.kyle-lanier.repl.run)
 * This repository supported by a serverless CICD build processes
 * Flake8 linting, unittests, and coverage are enforced for quality.
 * Compatible with Python 3.6.x, Windows, Linux, Mac
