@@ -24,8 +24,8 @@ WSU Applied Learning Database
 ```javascript
 The Entity Relationship Diagram and details for this repository are as follows.
 ```
-![](./resources/ER_Diagram.png)
 ![](./resources/Detailed_Description.png)
+![](./resources/ER_Diagram.png)
 ![](./resources/Relational_Schemas.png)
 
 
