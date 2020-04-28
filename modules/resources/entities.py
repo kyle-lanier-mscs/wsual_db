@@ -25,15 +25,15 @@ SKILLSETS = {
 
 SKILLS = {
     'Skills': [
-        ('Python', 'CS Programming', 'High'),
-        ('Power BI', 'Data Analytics', 'Medium'),
-        ('AWS', 'Cloud Services', 'Low'),
-        ('Office 365', 'Microsoft Applications', 'Medium'),
-        ('Technical Support', 'Support Services', 'Medium'),
-        ('Azure', 'Cloud Services', 'Low'),
-        ('C#', 'CS Programming', 'Low'),
-        ('Customer Service', 'Support Services', 'High'),
-        ('MySQL', 'Data Analytics', 'Low')
+        ('Python', 'High', 'CS Programming'),
+        ('Power BI', 'Medium', 'Data Analytics'),
+        ('AWS', 'Low', 'Cloud Services'),
+        ('Office 365', 'Medium', 'Microsoft Applications'),
+        ('Technical Support', 'Medium', 'Support Services'),
+        ('Azure', 'Low', 'Cloud Services'),
+        ('C#', 'Low', 'CS Programming'),
+        ('Customer Service', 'High', 'Support Services'),
+        ('MySQL', 'Low', 'Data Analytics')
     ]
 }
 

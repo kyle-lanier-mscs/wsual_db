@@ -91,7 +91,7 @@ def create_skillsets_table(wsual_db):
 def create_skills_table(wsual_db):
     wsual_db.execute("""
         CREATE TABLE IF NOT EXISTS Skills (
-            skillName VARCHAR(50) PRIMARY KEY,
+            skillName VARCHAR(50),
             skillLevel VARCHAR(30) NOT NULL,
             description VARCHAR(50) NOT NULL,
             PRIMARY KEY(skillName, skillLevel)
