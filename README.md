@@ -41,8 +41,7 @@ The Entity Relationship Diagram and details for this repository are as follows.
 ```javascript
 First install python and pip because this program will automatically execute pip commands
 to install packages based on how you use this repository. After you download or cloan this 
-repository, use your commandline to change directory into the root folder and then do:
-> python main.py
+repository, use your commandline to change directory into the root folder and execute main.py
 
 * Python3
 * pip
@@ -82,8 +81,14 @@ the process to contribute future enhancements.
 4: Include your new unittest file within the import statement in the following script
    /cicd/test_suite.py
 
-4: Pre validate your code by executing the following validation script
+5: Create or update the appropriate docstring file located in
+   /modules/docstrings
+
+6: Pre validate your code by executing the following validation script
    /cicd/cicd_valaidation.py
+
+7: Regenerate the sphinx wiki documentation by executing the following script
+   /cicd/sphinx_docgen.py
 ```
 
 ## Troubleshooting
