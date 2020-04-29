@@ -18,6 +18,7 @@ def setup_db():
         :return: the rendered wsual_db
         :rtype: sqlite3 database
 
+
 def create_tables(wsual_db):
     - **purpose**, **parameters**, **types**, **return** and **return types**::
 
@@ -50,7 +51,6 @@ def create_students_table(wsual_db):
         );
 
 
-
 def create_skillsets_table(wsual_db):
     - **purpose**, **parameters**, **types**, **return** and **return types**::
 
@@ -66,7 +66,6 @@ def create_skillsets_table(wsual_db):
         );
 
 
-
 def create_skills_table(wsual_db):
     - **purpose**, **parameters**, **types**, **return** and **return types**::
 
@@ -76,14 +75,12 @@ def create_skills_table(wsual_db):
         :return: None
         :rtype: None
 
-
         CREATE TABLE IF NOT EXISTS Skills (
             skillName VARCHAR(50),
             skillLevel VARCHAR(30) NOT NULL,
             description VARCHAR(50) NOT NULL,
             PRIMARY KEY(skillName, skillLevel)
         );
-
 
 
 def create_projects_table(wsual_db):
@@ -103,7 +100,6 @@ def create_projects_table(wsual_db):
             skillSetId INTEGER NOT NULL,
             FOREIGN KEY(skillSetId) REFERENCES SkillSets(skillSetId)
         );
-
 
 
 def create_contracts_table(wsual_db):
@@ -144,7 +140,6 @@ def create_companies_table(wsual_db):
         );
 
 
-
 def create_locations_table(wsual_db):
     - **purpose**, **parameters**, **types**, **return** and **return types**::
 
@@ -153,8 +148,6 @@ def create_locations_table(wsual_db):
         :type sqlite3: sqlite3 database
         :return: None
         :rtype: None
-
-        :Example:
 
         CREATE TABLE IF NOT EXISTS Locations (
             locationId VARCHAR(50) PRIMARY KEY,
@@ -165,7 +158,6 @@ def create_locations_table(wsual_db):
             companyName VARCHAR(50) NOT NULL,
             FOREIGN KEY(companyName) REFERENCES Companies(companyName)
         );
-
 
 
 def enter_tables(wsual_db, tables):
