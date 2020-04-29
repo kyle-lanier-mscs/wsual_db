@@ -11,7 +11,8 @@ for interactions with the pysqlite database
 def ui():
     :Example:
 
-    >>> main()
+    >>>from modules.user_interface import ui
+    >>>ui()
     >>>---------WSUAL DB---------
     >>>[0]: Exit
     >>>[1]: Execute Statement
