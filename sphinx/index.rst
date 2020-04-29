@@ -9,7 +9,7 @@ WSU Applied Learning Database!
    :maxdepth: 2
    :caption: Contents:
 
-   README
+   readme
 
 .. include:: ../main.py
 .. include:: ../modules/docstrings/db_setup.py
