@@ -43,17 +43,17 @@ def create_students_table(wsual_db):
           :return: None
           :rtype: None
 
-    CREATE TABLE IF NOT EXISTS Students (
-        studentId VARCHAR(10) PRIMARY KEY,
-        studentName VARCHAR(50) NOT NULL,
-        major VARCHAR(50) NOT NULL,
-        tenure VARCHAR(20) NOT NULL,
-        graduationDate TEXT NOT NULL,
-        skillSetId INTEGER NOT NULL,
-        locationId VARCHAR(50) NOT NULL,
-        FOREIGN KEY(skillSetId) REFERENCES SkillSets(skillSetId),
-        FOREIGN KEY(locationId) REFERENCES Locations(locationId)
-    );
+        CREATE TABLE IF NOT EXISTS Students (
+            studentId VARCHAR(10) PRIMARY KEY,
+            studentName VARCHAR(50) NOT NULL,
+            major VARCHAR(50) NOT NULL,
+            tenure VARCHAR(20) NOT NULL,
+            graduationDate TEXT NOT NULL,
+            skillSetId INTEGER NOT NULL,
+            locationId VARCHAR(50) NOT NULL,
+            FOREIGN KEY(skillSetId) REFERENCES SkillSets(skillSetId),
+            FOREIGN KEY(locationId) REFERENCES Locations(locationId)
+        );
 
 
 
@@ -68,10 +68,10 @@ def create_skillsets_table(wsual_db):
           :return: None
           :rtype: None
 
-    CREATE TABLE IF NOT EXISTS SkillSets (
-        skillSetId INTEGER PRIMARY KEY,
-        date TEXT NOT NULL
-    );
+        CREATE TABLE IF NOT EXISTS SkillSets (
+            skillSetId INTEGER PRIMARY KEY,
+            date TEXT NOT NULL
+        );
 
 
 
@@ -87,12 +87,12 @@ def create_skills_table(wsual_db):
           :rtype: None
 
 
-    CREATE TABLE IF NOT EXISTS Skills (
-        skillName VARCHAR(50),
-        skillLevel VARCHAR(30) NOT NULL,
-        description VARCHAR(50) NOT NULL,
-        PRIMARY KEY(skillName, skillLevel)
-    );
+        CREATE TABLE IF NOT EXISTS Skills (
+            skillName VARCHAR(50),
+            skillLevel VARCHAR(30) NOT NULL,
+            description VARCHAR(50) NOT NULL,
+            PRIMARY KEY(skillName, skillLevel)
+        );
 
 
 
@@ -107,14 +107,14 @@ def create_projects_table(wsual_db):
           :return: None
           :rtype: None
 
-    CREATE TABLE IF NOT EXISTS Projects (
-        projectId VARCHAR(50) PRIMARY KEY,
-        type VARCHAR(50) NOT NULL,
-        numStudents INTEGER NOT NULL,
-        isRemote BOOL NOT NULL,
-        skillSetId INTEGER NOT NULL,
-        FOREIGN KEY(skillSetId) REFERENCES SkillSets(skillSetId)
-    );
+        CREATE TABLE IF NOT EXISTS Projects (
+            projectId VARCHAR(50) PRIMARY KEY,
+            type VARCHAR(50) NOT NULL,
+            numStudents INTEGER NOT NULL,
+            isRemote BOOL NOT NULL,
+            skillSetId INTEGER NOT NULL,
+            FOREIGN KEY(skillSetId) REFERENCES SkillSets(skillSetId)
+        );
 
 
 
@@ -129,18 +129,18 @@ def create_contracts_table(wsual_db):
           :return: None
           :rtype: None
 
-    CREATE TABLE IF NOT EXISTS Contracts (
-        companyName VARCHAR(50) NOT NULL,
-        contractId VARCHAR(50) PRIMARY KEY,
-        startDate TEXT NOT NULL,
-        endDate TEXT NOT NULL,
-        companyManager VARCHAR(50) NOT NULL,
-        studentWage REAL NOT NULL,
-        cost REAL NOT NULL,
-        projectId VARCHAR(50) NOT NULL,
-        FOREIGN KEY(companyName) REFERENCES Companies(companyName),
-        FOREIGN KEY(projectId) REFERENCES Projects(projectId)
-    );
+        CREATE TABLE IF NOT EXISTS Contracts (
+            companyName VARCHAR(50) NOT NULL,
+            contractId VARCHAR(50) PRIMARY KEY,
+            startDate TEXT NOT NULL,
+            endDate TEXT NOT NULL,
+            companyManager VARCHAR(50) NOT NULL,
+            studentWage REAL NOT NULL,
+            cost REAL NOT NULL,
+            projectId VARCHAR(50) NOT NULL,
+            FOREIGN KEY(companyName) REFERENCES Companies(companyName),
+            FOREIGN KEY(projectId) REFERENCES Projects(projectId)
+        );
 
 
 def create_companies_table(wsual_db):
@@ -154,10 +154,10 @@ def create_companies_table(wsual_db):
           :return: None
           :rtype: None
 
-    CREATE TABLE IF NOT EXISTS Companies (
-        companyName VARCHAR(50) PRIMARY KEY,
-        abbreviation VARCHAR(20) NOT NULL
-    );
+        CREATE TABLE IF NOT EXISTS Companies (
+            companyName VARCHAR(50) PRIMARY KEY,
+            abbreviation VARCHAR(20) NOT NULL
+        );
 
 
 
@@ -172,15 +172,15 @@ def create_locations_table(wsual_db):
           :return: None
           :rtype: None
 
-    CREATE TABLE IF NOT EXISTS Locations (
-        locationId VARCHAR(50) PRIMARY KEY,
-        street VARCHAR(50) NOT NULL,
-        city VARCHAR(50) NOT NULL,
-        state VARCHAR(50) NOT NULL,
-        zipcode VARCHAR(10) NOT NULL,
-        companyName VARCHAR(50) NOT NULL,
-        FOREIGN KEY(companyName) REFERENCES Companies(companyName)
-    );
+        CREATE TABLE IF NOT EXISTS Locations (
+            locationId VARCHAR(50) PRIMARY KEY,
+            street VARCHAR(50) NOT NULL,
+            city VARCHAR(50) NOT NULL,
+            state VARCHAR(50) NOT NULL,
+            zipcode VARCHAR(10) NOT NULL,
+            companyName VARCHAR(50) NOT NULL,
+            FOREIGN KEY(companyName) REFERENCES Companies(companyName)
+        );
 
 
 
