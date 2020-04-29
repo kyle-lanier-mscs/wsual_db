@@ -1,4 +1,4 @@
-main module
+main.py
 ===========
 
 .. automodule:: main

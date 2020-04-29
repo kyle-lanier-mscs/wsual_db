@@ -3,16 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to WSU Applied Learning Database's documentation!
-=========================================================
-
-
-.. include:: ../modules/docstrings/user_interface.py
-.. include:: ../modules/docstrings/db_setup.py
-
-
+WSU Applied Learning Database!
+==============================
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   modules
+   README
+
+.. include:: ../main.py
+.. include:: ../modules/docstrings/db_setup.py
