@@ -204,8 +204,8 @@ def create_contains_relation(wsual_db):
             skillSetId INTEGER NOT NULL,
             skillName VARCHAR(50) NOT NULL,
             FOREIGN KEY(skillSetId) REFERENCES SkillSets(skillSetId),
-            FOREIGN KEY(skillName) REFERENCES Skills(skillName),
-            PRIMARY KEY(skillSetId, skillName)
+            FOREIGN KEY(skillName, skillLevel) REFERENCES Skills(skillName, skillLevel),
+            PRIMARY KEY(skillSetId, skillName, skillLevel)
         );
 
 """

@@ -15,15 +15,15 @@
 
 CONTAINS = {
     'Contains': [
-        (1, 'Python'),
-        (2, 'Power BI'),
-        (3, 'AWS'),
-        (4, 'Office 365'),
-        (5, 'Technical Support'),
-        (1, 'C#'),
-        (2, 'MySQL'),
-        (3, 'Azure'),
-        (5, 'Customer Service')
+        (1, 'Python', 'High'),
+        (2, 'Power BI', 'Medium'),
+        (3, 'AWS', 'Low'),
+        (4, 'Office 365', 'Medium'),
+        (5, 'Technical Support', 'Medium'),
+        (1, 'C#', 'Low'),
+        (2, 'MySQL', 'Low'),
+        (3, 'Azure', 'Low'),
+        (5, 'Customer Service', 'High')
     ]
 }
 
