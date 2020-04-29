@@ -96,7 +96,7 @@ the process to contribute future enhancements.
 All unittest files located in the unit_tests directory can be debugged using /cicd/test_suite.py
 
 Set your breakpoints anywhere in a unittest file located withn the unit_tests directory.
-Then execute the /cicd/test_suite.py file using debug mode (Visual Studio Code) to enter and step
-into your breakpoints. For each new unittest file that is added into the unit_tests
-directory, be sure to add the respective import within test_suite.py
+Then execute the /cicd/test_suite.py file using debug mode (Visual Studio Code) to step
+into your breakpoints. For each unittest file that is added into the /unit_tests
+directory, be sure to add the respective import within /cicd/test_suite.py
 ```
