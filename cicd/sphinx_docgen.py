@@ -32,8 +32,8 @@ if __name__ == '__main__':
     os.system(f"sphinx-apidoc -o {os.path.join('sphinx')} .")
     os.system(f"sphinx-build -b html {os.path.join('sphinx')} {os.path.join('sphinx', '_build')}")
 
-    # print('\nExecuting Hosting Serivice Sync\n')
-    # from dotenv import load_dotenv
-    # load_dotenv()
-    # SPHINX_SYNC = os.getenv('SPHINX_SYNC')
-    # os.system(f"{SPHINX_SYNC}")
+    print('\nExecuting Hosting Serivice Sync\n')
+    from dotenv import load_dotenv
+    load_dotenv()
+    SPHINX_SYNC = os.getenv('SPHINX_SYNC')
+    os.system(f"{SPHINX_SYNC}")
