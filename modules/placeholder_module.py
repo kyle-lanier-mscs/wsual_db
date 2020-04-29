@@ -3,7 +3,7 @@ File: placeholder_module.py
 Date: 4.15.2020
 Author: Kyle Lanier
 
-Porpose:
+Purpose:
 Its purpose is to serve the developer example document
 strings for integration with sphinx.
 

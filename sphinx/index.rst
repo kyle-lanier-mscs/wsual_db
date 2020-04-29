@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to WSU Applied Learning Database's documentation!
-=================================================
+=========================================================
 
 
 .. include:: ../modules/docstrings/user_interface.py

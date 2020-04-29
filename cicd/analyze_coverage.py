@@ -3,7 +3,7 @@ File: analyze_coverage.py
 Date: 4.15.2020
 Author: Kyle Lanier
 
-Porpose:
+Purpose:
 This file is an abstraction from the .github workflows cicd.yml
 where within the cicd.yml we use Pytest to validate unit testing
 within the build workflow. We use Pytest in the cicd.yml instead
