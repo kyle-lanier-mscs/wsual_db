@@ -12,5 +12,4 @@ WSU Applied Learning Database!
    README
 
 .. include:: ../main.py
-.. include:: ../modules/docstrings/user_interface.py
 .. include:: ../modules/docstrings/db_setup.py
