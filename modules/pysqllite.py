@@ -8,6 +8,7 @@ class PySQLLite(object):
 
     def __init__(self, database):
         self.conn = sqlite3.connect(database)
+        self.conn.execute("PRAGMA foreign_keys = 1")
         self.cursor = self.conn.cursor()
 
     def __enter__(self):
