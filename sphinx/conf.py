@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Unit Converstion Tool'
+project = 'WSU Applied Learning Database'
 copyright = '2020, Kyle'
 author = 'Kyle'
 
