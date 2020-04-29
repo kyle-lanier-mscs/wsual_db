@@ -7,12 +7,12 @@ Welcome to WSU Applied Learning Database's documentation!
 =========================================================
 
 
-.. include:: ../modules/docstrings/user_interface.py
-.. include:: ../modules/docstrings/db_setup.py
-
-
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   modules
+   README
+   main
+
+.. include:: ../modules/docstrings/user_interface.py
+.. include:: ../modules/docstrings/db_setup.py
