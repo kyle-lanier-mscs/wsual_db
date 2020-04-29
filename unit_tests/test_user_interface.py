@@ -71,13 +71,13 @@ class TestUserInterface(TestCase):
         self.assertEqual(
             table_names,
             [
-                'Students',
-                'SkillSets',
                 'Skills',
+                'SkillSets',
+                'Companies',
                 'Projects',
                 'Contracts',
-                'Companies',
                 'Locations',
+                'Students',
                 'Contains'
             ]
         )
@@ -203,7 +203,28 @@ class TestUserInterface(TestCase):
 
         _print.assert_has_calls(calls)
 
-    # @patch('modules.assignment_methods.input')
-    # @patch('modules.assignment_methods.pprint', side_effect=MagicMock(pprint))
-    # @patch('modules.assignment_methods.print', side_effect=MagicMock(print))
-    # def test_assignment_incorrect_input(self, print, pprint, _input):
+    @patch('modules.user_interface.input')
+    @patch('modules.user_interface.print', side_effect=MagicMock(print))
+    def test_foreign_key_constraint(self, _print, _input):
+        """
+        Test the method will raise a foreign key
+        constraint when attempting to delete
+        a record that is referenced by another
+        table
+        """
+        input_return_values = [
+            '0',
+            'DELETE FROM SkillSets WHERE skillSetId = 1',
+            '1'
+        ]
+
+        _input.side_effect = lambda x: input_return_values.pop()
+
+        calls = [call('FOREIGN KEY constraint failed')]
+
+        # when the user selects '0' then the
+        # assignment method will call sys.exit
+        with self.assertRaises(SystemExit):
+            ui()
+
+        _print.assert_has_calls(calls)

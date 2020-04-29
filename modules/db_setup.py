@@ -36,10 +36,10 @@ def setup_db():
 
     create_tables(wsual_db)
     tables = [
-        STUDENTS, SKILLSETS,
-        SKILLS, PROJECTS,
-        CONTRACTS, COMPANIES,
-        LOCATIONS
+        SKILLS, SKILLSETS,
+        COMPANIES, PROJECTS,
+        CONTRACTS, LOCATIONS,
+        STUDENTS
     ]
     enter_tables(wsual_db, tables)
 
@@ -56,13 +56,13 @@ def create_tables(wsual_db):
     """
     Create all database tables
     """
-    create_students_table(wsual_db)
-    create_skillsets_table(wsual_db)
     create_skills_table(wsual_db)
+    create_skillsets_table(wsual_db)
+    create_companies_table(wsual_db)
     create_projects_table(wsual_db)
     create_contracts_table(wsual_db)
-    create_companies_table(wsual_db)
     create_locations_table(wsual_db)
+    create_students_table(wsual_db)
 
 
 def create_students_table(wsual_db):
@@ -174,9 +174,10 @@ def create_contains_relation(wsual_db):
         CREATE TABLE IF NOT EXISTS Contains (
             skillSetId INTEGER NOT NULL,
             skillName VARCHAR(50) NOT NULL,
+            skillLevel VARCHAR(30) NOT NULL,
             FOREIGN KEY(skillSetId) REFERENCES SkillSets(skillSetId),
-            FOREIGN KEY(skillName) REFERENCES Skills(skillName),
-            PRIMARY KEY(skillSetId, skillName)
+            FOREIGN KEY(skillName, skillLevel) REFERENCES Skills(skillName, skillLevel),
+            PRIMARY KEY(skillSetId, skillName, skillLevel)
         );
     """)
 
