@@ -3,7 +3,7 @@ File: db_setup.py
 Date: 4.24.2020
 Author: Kyle Lanier
 
-Porpose:
+Purpose:
 This file is used to setup the WSU Applied Learning
 database from scratch in the event the database needs
 to be recreated.
@@ -41,13 +41,13 @@ def setup_db():
         CONTRACTS, COMPANIES,
         LOCATIONS
     ]
-    data_entry(wsual_db, tables)
+    enter_tables(wsual_db, tables)
 
     create_relations(wsual_db)
     relations = [
         CONTAINS
     ]
-    data_entry(wsual_db, relations)
+    enter_tables(wsual_db, relations)
 
     return wsual_db
 
@@ -154,14 +154,14 @@ def create_locations_table(wsual_db):
     """)
 
 
-def data_entry(wsual_db, tables):
+def enter_tables(wsual_db, tables):
     for table in tables:
         for table_name, records in table.items():
             for record in records:
-                record_entry(wsual_db, 'REPLACE', table_name, record)
+                enter_record(wsual_db, 'REPLACE', table_name, record)
 
 
-def record_entry(wsual_db, action, table, values):
+def enter_record(wsual_db, action, table, values):
     wsual_db.execute(f"INSERT OR {action} INTO {table} VALUES{values}")
 
 

@@ -3,7 +3,7 @@ File: test_placeholder_module.py
 Date: 4.17.2020
 Author: Kyle Lanier
 
-Porpose:
+Purpose:
 Its purpose is to serve as a TDD unit test
 file to test the placeholder module.
 

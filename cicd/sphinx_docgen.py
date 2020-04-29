@@ -3,7 +3,7 @@ File: sphinx_docgen.py
 Date: 4.15.2020
 Author: Kyle Lanier
 
-Porpose:
+Purpose:
 This file is used to automatically generate documentation
 for the repository by using sphinx to analyze doc strings
 within python files.

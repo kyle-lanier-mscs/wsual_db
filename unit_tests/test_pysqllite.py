@@ -3,7 +3,7 @@ File: test_pysqllite.py
 Date: 4.13.2020
 Author: Kyle Lanier
 
-Porpose:
+Purpose:
 This is a Test Driven Development unittest file intended
 on testing functionality as defined within the pysqllite
 module.

@@ -3,7 +3,7 @@ File: /modules/user_interface.py
 Date: 4.27.2020
 Author: Kyle Lanier
 
-Porpose:
+Purpose:
 This file is used to serve as the main U.I.
 for interactions with the pysqlite database
 
@@ -12,8 +12,6 @@ def ui():
     :Example:
 
     >>> main()
-
-    >>> Welcome to the Unit Conversion Tool
     >>>---------WSUAL DB---------
     >>>[0]: Exit
     >>>[1]: Execute Statement
