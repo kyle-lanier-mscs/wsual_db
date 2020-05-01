@@ -75,6 +75,7 @@ class TestUserInterface(TestCase):
                 'SkillSets',
                 'Companies',
                 'Projects',
+                'Purchases',
                 'Contracts',
                 'Locations',
                 'Students',

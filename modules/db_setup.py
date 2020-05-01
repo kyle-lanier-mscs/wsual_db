@@ -23,7 +23,7 @@ sys.path.append(os.path.join(top, ''))
 
 from modules.pysqllite import PySQLLite  # noqa: E402
 from modules.resources.entities import STUDENTS, SKILLSETS, \
-    SKILLS, PROJECTS, CONTRACTS, COMPANIES, LOCATIONS  # noqa: E402
+    SKILLS, PROJECTS, CONTRACTS, COMPANIES, LOCATIONS, PURCHASES  # noqa: E402
 from modules.resources.relations import CONTAINS  # noqa: E402
 
 
@@ -38,8 +38,8 @@ def setup_db():
     tables = [
         SKILLS, SKILLSETS,
         COMPANIES, PROJECTS,
-        CONTRACTS, LOCATIONS,
-        STUDENTS
+        PURCHASES, CONTRACTS,
+        LOCATIONS, STUDENTS
     ]
     enter_tables(wsual_db, tables)
 
@@ -60,23 +60,30 @@ def create_tables(wsual_db):
     create_skillsets_table(wsual_db)
     create_companies_table(wsual_db)
     create_projects_table(wsual_db)
+    create_purchases_table(wsual_db)
     create_contracts_table(wsual_db)
     create_locations_table(wsual_db)
     create_students_table(wsual_db)
 
 
-def create_students_table(wsual_db):
+def enter_tables(wsual_db, tables):
+    for table in tables:
+        for table_name, records in table.items():
+            for record in records:
+                enter_record(wsual_db, 'REPLACE', table_name, record)
+
+
+def enter_record(wsual_db, action, table, values):
+    wsual_db.execute(f"INSERT OR {action} INTO {table} VALUES{values}")
+
+
+def create_skills_table(wsual_db):
     wsual_db.execute("""
-        CREATE TABLE IF NOT EXISTS Students (
-            studentId VARCHAR(10) PRIMARY KEY,
-            studentName VARCHAR(50) NOT NULL,
-            major VARCHAR(50) NOT NULL,
-            tenure VARCHAR(20) NOT NULL,
-            graduationDate TEXT NOT NULL,
-            skillSetId INTEGER NOT NULL,
-            locationId VARCHAR(50) NOT NULL,
-            FOREIGN KEY(skillSetId) REFERENCES SkillSets(skillSetId),
-            FOREIGN KEY(locationId) REFERENCES Locations(locationId)
+        CREATE TABLE IF NOT EXISTS Skills (
+            skillName VARCHAR(50),
+            skillLevel VARCHAR(30) NOT NULL,
+            description VARCHAR(50) NOT NULL,
+            PRIMARY KEY(skillName, skillLevel)
         );
     """)
 
@@ -90,13 +97,11 @@ def create_skillsets_table(wsual_db):
     """)
 
 
-def create_skills_table(wsual_db):
+def create_companies_table(wsual_db):
     wsual_db.execute("""
-        CREATE TABLE IF NOT EXISTS Skills (
-            skillName VARCHAR(50),
-            skillLevel VARCHAR(30) NOT NULL,
-            description VARCHAR(50) NOT NULL,
-            PRIMARY KEY(skillName, skillLevel)
+        CREATE TABLE IF NOT EXISTS Companies (
+            companyName VARCHAR(50) PRIMARY KEY,
+            abbreviation VARCHAR(20) NOT NULL
         );
     """)
 
@@ -114,6 +119,17 @@ def create_projects_table(wsual_db):
     """)
 
 
+def create_purchases_table(wsual_db):
+    wsual_db.execute("""
+        CREATE TABLE IF NOT EXISTS Purchases (
+            receiptId INTEGER PRIMARY KEY,
+            cost REAL NOT NULL,
+            studentWage REAL NOT NULL,
+            compBuyer VARCHAR(50) NOT NULL
+        );
+    """)
+
+
 def create_contracts_table(wsual_db):
     wsual_db.execute("""
         CREATE TABLE IF NOT EXISTS Contracts (
@@ -121,21 +137,11 @@ def create_contracts_table(wsual_db):
             contractId VARCHAR(50) PRIMARY KEY,
             startDate TEXT NOT NULL,
             endDate TEXT NOT NULL,
-            companyManager VARCHAR(50) NOT NULL,
-            studentWage REAL NOT NULL,
-            cost REAL NOT NULL,
             projectId VARCHAR(50) NOT NULL,
+            receiptId INTEGER NOT NULL,
             FOREIGN KEY(companyName) REFERENCES Companies(companyName),
             FOREIGN KEY(projectId) REFERENCES Projects(projectId)
-        );
-    """)
-
-
-def create_companies_table(wsual_db):
-    wsual_db.execute("""
-        CREATE TABLE IF NOT EXISTS Companies (
-            companyName VARCHAR(50) PRIMARY KEY,
-            abbreviation VARCHAR(20) NOT NULL
+            FOREIGN KEY(receiptId) REFERENCES Purchases(receiptId)
         );
     """)
 
@@ -154,15 +160,20 @@ def create_locations_table(wsual_db):
     """)
 
 
-def enter_tables(wsual_db, tables):
-    for table in tables:
-        for table_name, records in table.items():
-            for record in records:
-                enter_record(wsual_db, 'REPLACE', table_name, record)
-
-
-def enter_record(wsual_db, action, table, values):
-    wsual_db.execute(f"INSERT OR {action} INTO {table} VALUES{values}")
+def create_students_table(wsual_db):
+    wsual_db.execute("""
+        CREATE TABLE IF NOT EXISTS Students (
+            studentId VARCHAR(10) PRIMARY KEY,
+            studentName VARCHAR(50) NOT NULL,
+            major VARCHAR(50) NOT NULL,
+            tenure VARCHAR(20) NOT NULL,
+            graduationDate TEXT NOT NULL,
+            skillSetId INTEGER NOT NULL,
+            locationId VARCHAR(50) NOT NULL,
+            FOREIGN KEY(skillSetId) REFERENCES SkillSets(skillSetId),
+            FOREIGN KEY(locationId) REFERENCES Locations(locationId)
+        );
+    """)
 
 
 def create_relations(wsual_db):
