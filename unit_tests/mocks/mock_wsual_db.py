@@ -46,27 +46,37 @@ MOCK_WSUAL_DB = [
     ('index', 'sqlite_autoindex_Projects_1', 'Projects', 8, None),
     (
         'table',
-        'Contracts',
-        'Contracts',
+        'Purchases',
+        'Purchases',
         9,
+        'CREATE TABLE Purchases (\n'
+        '            receiptId INTEGER PRIMARY KEY,\n'
+        '            cost REAL NOT NULL,\n'
+        '            studentWage REAL NOT NULL,\n'
+        '            compBuyer VARCHAR(50) NOT NULL\n'
+        '        )'),
+    (
+        'table',
+        'Contracts',
+        'Contracts',
+        10,
         'CREATE TABLE Contracts (\n'
         '            companyName VARCHAR(50) NOT NULL,\n'
         '            contractId VARCHAR(50) PRIMARY KEY,\n'
         '            startDate TEXT NOT NULL,\n'
         '            endDate TEXT NOT NULL,\n'
-        '            companyManager VARCHAR(50) NOT NULL,\n'
-        '            studentWage REAL NOT NULL,\n'
-        '            cost REAL NOT NULL,\n'
         '            projectId VARCHAR(50) NOT NULL,\n'
+        '            receiptId INTEGER NOT NULL,\n'
         '            FOREIGN KEY(companyName) REFERENCES Companies(companyName),\n'
         '            FOREIGN KEY(projectId) REFERENCES Projects(projectId)\n'
+        '            FOREIGN KEY(receiptId) REFERENCES Purchases(receiptId)\n'
         '        )'),
-    ('index', 'sqlite_autoindex_Contracts_1', 'Contracts', 10, None),
+    ('index', 'sqlite_autoindex_Contracts_1', 'Contracts', 11, None),
     (
         'table',
         'Locations',
         'Locations',
-        11,
+        12,
         'CREATE TABLE Locations (\n'
         '            locationId VARCHAR(50) PRIMARY KEY,\n'
         '            street VARCHAR(50) NOT NULL,\n'
@@ -76,12 +86,12 @@ MOCK_WSUAL_DB = [
         '            companyName VARCHAR(50) NOT NULL,\n'
         '            FOREIGN KEY(companyName) REFERENCES Companies(companyName)\n'
         '        )'),
-    ('index', 'sqlite_autoindex_Locations_1', 'Locations', 12, None),
+    ('index', 'sqlite_autoindex_Locations_1', 'Locations', 13, None),
     (
         'table',
         'Students',
         'Students',
-        13,
+        14,
         'CREATE TABLE Students (\n'
         '            studentId VARCHAR(10) PRIMARY KEY,\n'
         '            studentName VARCHAR(50) NOT NULL,\n'
@@ -93,12 +103,12 @@ MOCK_WSUAL_DB = [
         '            FOREIGN KEY(skillSetId) REFERENCES SkillSets(skillSetId),\n'
         '            FOREIGN KEY(locationId) REFERENCES Locations(locationId)\n'
         '        )'),
-    ('index', 'sqlite_autoindex_Students_1', 'Students', 14, None),
+    ('index', 'sqlite_autoindex_Students_1', 'Students', 15, None),
     (
         'table',
         'Contains',
         'Contains',
-        15,
+        16,
         'CREATE TABLE Contains (\n'
         '            skillSetId INTEGER NOT NULL,\n'
         '            skillName VARCHAR(50) NOT NULL,\n'
@@ -108,5 +118,5 @@ MOCK_WSUAL_DB = [
         'skillLevel),\n'
         '            PRIMARY KEY(skillSetId, skillName, skillLevel)\n'
         '        )'),
-    ('index', 'sqlite_autoindex_Contains_1', 'Contains', 16, None)
+    ('index', 'sqlite_autoindex_Contains_1', 'Contains', 17, None)
 ]
