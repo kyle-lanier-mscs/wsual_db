@@ -35,7 +35,7 @@ class TestDbSetup(TestCase):
         the rendered database
         """
         self.db = setup_db()
-        self.assertEqual(self.db.conn.total_changes, 53)
+        self.assertEqual(self.db.conn.total_changes, 58)
 
     def test_db_tables(self):
         """

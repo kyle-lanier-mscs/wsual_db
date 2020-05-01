@@ -49,11 +49,21 @@ PROJECTS = {
 
 CONTRACTS = {
     'Contracts': [
-        ('Koch Supply & Trading', 'KS&T Support 2020 JH', '2020-01-01', '2020-12-31', 'Jonathan Helm', 14.00, 50000.00, 'Technical Support'),  # noqa: E501
-        ('NetApp', 'NetApp QA 2020 RK', '2020-01-01', '2020-04-30', 'Rick Kwon', 12.00, 20000.00, 'Test Engineering'),
-        ('NetApp', 'NetApp Cloud 2020 RP', '2020-01-01', '2020-04-30', 'Renee Phillips', 12.00, 20000.00, 'Cloud Services'),
-        ('Textron Aviation', 'Textron Help Hanger 2020 TR', '2020-05-25', '2020-12-31', 'Thomas Rose', 12.00, 100000.00, 'Customer Service'),  # noqa: E501
-        ('Wichita City Hall', 'Wichita Dashboards 2020 M', '2020-05-25', '2020-12-31', 'Mike', 12.00, 100000.00, 'Data Analytics')  # noqa: E501
+        ('Koch Supply & Trading', 'KS&T Support 2020 JH', '2020-01-01', '2020-12-31', 'Technical Support', 1),  # noqa: E501
+        ('NetApp', 'NetApp QA 2020 RK', '2020-01-01', '2020-04-30', 'Test Engineering', 2),
+        ('NetApp', 'NetApp Cloud 2020 RP', '2020-01-01', '2020-04-30', 'Cloud Services', 3),
+        ('Textron Aviation', 'Textron Help Hanger 2020 TR', '2020-05-25', '2020-12-31', 'Customer Service', 4),  # noqa: E501
+        ('Wichita City Hall', 'Wichita Dashboards 2020 M', '2020-05-25', '2020-12-31', 'Data Analytics', 5)  # noqa: E501
+    ]
+}
+
+PURCHASES = {
+    'Purchases': [
+        (1, 14.00, 50000.00, 'Jonathan Helm'),
+        (2, 12.00, 20000.00, 'Rick Kwon'),
+        (3, 12.00, 20000.00, 'Renee Phillips'),
+        (4, 12.00, 100000.00, 'Thomas Rose'),
+        (5, 12.00, 100000.00, 'Mike Jones', )
     ]
 }
 

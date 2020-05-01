@@ -25,15 +25,16 @@ for interactions with the pysqlite database
 >>> 2
 >>>
 >>> Pleasse select a table:
->>> [0]: Students
+>>> [0]: Skills
 >>> [1]: SkillSets
->>> [2]: Skills
+>>> [2]: Companies
 >>> [3]: Projects
->>> [4]: Contracts
->>> [5]: Companies
+>>> [4]: Purchases
+>>> [5]: Contracts
 >>> [6]: Locations
->>> [7]: Contains
->>> 2
+>>> [7]: Students
+>>> [8]: Contains
+>>> 0
 skillName VARCHAR(50)    skillLevel VARCHAR(30)   description VARCHAR(50)
 Python                   High                     CS Programming
 Power BI                 Medium                   Data Analytics
