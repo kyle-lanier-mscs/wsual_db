@@ -204,28 +204,32 @@ class TestUserInterface(TestCase):
 
         _print.assert_has_calls(calls)
 
-    @patch('modules.user_interface.input')
-    @patch('modules.user_interface.print', side_effect=MagicMock(print))
-    def test_foreign_key_constraint(self, _print, _input):
-        """
-        Test the method will raise a foreign key
-        constraint when attempting to delete
-        a record that is referenced by another
-        table
-        """
-        input_return_values = [
-            '0',
-            'DELETE FROM SkillSets WHERE skillSetId = 1',
-            '1'
-        ]
+    # NOTE: After updating the CREATE Table command to
+    # cascade on update and delete, this unittest is
+    # no longer needed
+    #
+    # @patch('modules.user_interface.input')
+    # @patch('modules.user_interface.print', side_effect=MagicMock(print))
+    # def test_foreign_key_constraint(self, _print, _input):
+    #     """
+    #     Test the method will raise a foreign key
+    #     constraint when attempting to delete
+    #     a record that is referenced by another
+    #     table
+    #     """
+    #     input_return_values = [
+    #         '0',
+    #         'DELETE FROM SkillSets WHERE skillSetId = 0',
+    #         '1'
+    #     ]
 
-        _input.side_effect = lambda x: input_return_values.pop()
+    #     _input.side_effect = lambda x: input_return_values.pop()
 
-        calls = [call('FOREIGN KEY constraint failed')]
+    #     calls = [call('FOREIGN KEY constraint failed')]
 
-        # when the user selects '0' then the
-        # assignment method will call sys.exit
-        with self.assertRaises(SystemExit):
-            ui()
+    #     # when the user selects '0' then the
+    #     # assignment method will call sys.exit
+    #     with self.assertRaises(SystemExit):
+    #         ui()
 
-        _print.assert_has_calls(calls)
+    #     _print.assert_has_calls(calls)

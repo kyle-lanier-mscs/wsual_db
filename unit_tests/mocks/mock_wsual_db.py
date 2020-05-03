@@ -8,7 +8,9 @@ MOCK_WSUAL_DB = [
         '            skillName VARCHAR(50),\n'
         '            skillLevel VARCHAR(30) NOT NULL,\n'
         '            description VARCHAR(50) NOT NULL,\n'
-        '            PRIMARY KEY(skillName, skillLevel)\n'
+        '            PRIMARY KEY(skillName, skillLevel),\n'
+        '            CHECK (length(skillName) >= 2),\n'
+        '            CHECK (length(skillLevel) >= 3)\n'
         '        )'),
     ('index', 'sqlite_autoindex_Skills_1', 'Skills', 3, None),
     (
@@ -18,7 +20,8 @@ MOCK_WSUAL_DB = [
         4,
         'CREATE TABLE SkillSets (\n'
         '            skillSetId INTEGER PRIMARY KEY,\n'
-        '            date TEXT NOT NULL\n'
+        '            date TEXT NOT NULL,\n'
+        '            CHECK (skillSetId >= 0)\n'
         '        )'),
     (
         'table',
@@ -27,7 +30,9 @@ MOCK_WSUAL_DB = [
         5,
         'CREATE TABLE Companies (\n'
         '            companyName VARCHAR(50) PRIMARY KEY,\n'
-        '            abbreviation VARCHAR(20) NOT NULL\n'
+        '            abbreviation VARCHAR(20) NOT NULL,\n'
+        '            CHECK (length(companyName) >= 3),\n'
+        '            CHECK (length(abbreviation) >= 3)\n'
         '        )'),
     ('index', 'sqlite_autoindex_Companies_1', 'Companies', 6, None),
     (
@@ -42,6 +47,9 @@ MOCK_WSUAL_DB = [
         '            isRemote BOOL NOT NULL,\n'
         '            skillSetId INTEGER NOT NULL,\n'
         '            FOREIGN KEY(skillSetId) REFERENCES SkillSets(skillSetId)\n'
+        '                ON DELETE CASCADE\n'
+        '                ON UPDATE CASCADE,\n'
+        '            CHECK (length(projectId) >= 10)\n'
         '        )'),
     ('index', 'sqlite_autoindex_Projects_1', 'Projects', 8, None),
     (
@@ -53,7 +61,10 @@ MOCK_WSUAL_DB = [
         '            receiptId INTEGER PRIMARY KEY,\n'
         '            cost REAL NOT NULL,\n'
         '            studentWage REAL NOT NULL,\n'
-        '            compBuyer VARCHAR(50) NOT NULL\n'
+        '            compBuyer VARCHAR(50) NOT NULL,\n'
+        '            CHECK (receiptId > 0),\n'
+        '            CHECK (cost > 0),\n'
+        '            CHECK (studentWage > 0)\n'
         '        )'),
     (
         'table',
@@ -67,9 +78,16 @@ MOCK_WSUAL_DB = [
         '            endDate TEXT NOT NULL,\n'
         '            projectId VARCHAR(50) NOT NULL,\n'
         '            receiptId INTEGER NOT NULL,\n'
-        '            FOREIGN KEY(companyName) REFERENCES Companies(companyName),\n'
+        '            FOREIGN KEY(companyName) REFERENCES Companies(companyName)\n'
+        '                ON DELETE CASCADE\n'
+        '                ON UPDATE CASCADE,\n'
         '            FOREIGN KEY(projectId) REFERENCES Projects(projectId)\n'
+        '                ON DELETE CASCADE\n'
+        '                ON UPDATE CASCADE,\n'
         '            FOREIGN KEY(receiptId) REFERENCES Purchases(receiptId)\n'
+        '                ON DELETE CASCADE\n'
+        '                ON UPDATE CASCADE,\n'
+        '            CHECK (length(contractId) >= 5)\n'
         '        )'),
     ('index', 'sqlite_autoindex_Contracts_1', 'Contracts', 11, None),
     (
@@ -85,6 +103,9 @@ MOCK_WSUAL_DB = [
         '            zipcode VARCHAR(10) NOT NULL,\n'
         '            companyName VARCHAR(50) NOT NULL,\n'
         '            FOREIGN KEY(companyName) REFERENCES Companies(companyName)\n'
+        '                ON DELETE CASCADE\n'
+        '                ON UPDATE CASCADE,\n'
+        '            CHECK (length(locationId) >= 5)\n'
         '        )'),
     ('index', 'sqlite_autoindex_Locations_1', 'Locations', 13, None),
     (
@@ -100,8 +121,13 @@ MOCK_WSUAL_DB = [
         '            graduationDate TEXT NOT NULL,\n'
         '            skillSetId INTEGER NOT NULL,\n'
         '            locationId VARCHAR(50) NOT NULL,\n'
-        '            FOREIGN KEY(skillSetId) REFERENCES SkillSets(skillSetId),\n'
+        '            FOREIGN KEY(skillSetId) REFERENCES SkillSets(skillSetId)\n'
+        '                ON DELETE CASCADE\n'
+        '                ON UPDATE CASCADE,\n'
         '            FOREIGN KEY(locationId) REFERENCES Locations(locationId)\n'
+        '                ON DELETE CASCADE\n'
+        '                ON UPDATE CASCADE,\n'
+        '            CHECK (length(studentId) = 8)\n'
         '        )'),
     ('index', 'sqlite_autoindex_Students_1', 'Students', 15, None),
     (
@@ -113,10 +139,17 @@ MOCK_WSUAL_DB = [
         '            skillSetId INTEGER NOT NULL,\n'
         '            skillName VARCHAR(50) NOT NULL,\n'
         '            skillLevel VARCHAR(30) NOT NULL,\n'
-        '            FOREIGN KEY(skillSetId) REFERENCES SkillSets(skillSetId),\n'
+        '            FOREIGN KEY(skillSetId) REFERENCES SkillSets(skillSetId)\n'
+        '                ON DELETE CASCADE\n'
+        '                ON UPDATE CASCADE,\n'
         '            FOREIGN KEY(skillName, skillLevel) REFERENCES Skills(skillName, '
-        'skillLevel),\n'
-        '            PRIMARY KEY(skillSetId, skillName, skillLevel)\n'
+        'skillLevel)\n'
+        '                ON DELETE CASCADE\n'
+        '                ON UPDATE CASCADE,\n'
+        '            PRIMARY KEY(skillSetId, skillName, skillLevel),\n'
+        '            CHECK (skillSetId > 0),\n'
+        '            CHECK (length(skillName) >= 2),\n'
+        '            CHECK (length(skillLevel) >= 3)\n'
         '        )'),
     ('index', 'sqlite_autoindex_Contains_1', 'Contains', 17, None)
 ]

@@ -31,7 +31,6 @@ def ui():
     while True:
         # Connect to a database
         wsual_db = PySQLLite("database/WSU_AL.db")
-
         try:
             print("\n---------WSUAL DB---------")
             ui_options()

@@ -83,7 +83,9 @@ def create_skills_table(wsual_db):
             skillName VARCHAR(50),
             skillLevel VARCHAR(30) NOT NULL,
             description VARCHAR(50) NOT NULL,
-            PRIMARY KEY(skillName, skillLevel)
+            PRIMARY KEY(skillName, skillLevel),
+            CHECK (length(skillName) >= 2),
+            CHECK (length(skillLevel) >= 3)
         );
     """)
 
@@ -92,7 +94,8 @@ def create_skillsets_table(wsual_db):
     wsual_db.execute("""
         CREATE TABLE IF NOT EXISTS SkillSets (
             skillSetId INTEGER PRIMARY KEY,
-            date TEXT NOT NULL
+            date TEXT NOT NULL,
+            CHECK (skillSetId >= 0)
         );
     """)
 
@@ -101,7 +104,9 @@ def create_companies_table(wsual_db):
     wsual_db.execute("""
         CREATE TABLE IF NOT EXISTS Companies (
             companyName VARCHAR(50) PRIMARY KEY,
-            abbreviation VARCHAR(20) NOT NULL
+            abbreviation VARCHAR(20) NOT NULL,
+            CHECK (length(companyName) >= 3),
+            CHECK (length(abbreviation) >= 3)
         );
     """)
 
@@ -115,6 +120,9 @@ def create_projects_table(wsual_db):
             isRemote BOOL NOT NULL,
             skillSetId INTEGER NOT NULL,
             FOREIGN KEY(skillSetId) REFERENCES SkillSets(skillSetId)
+                ON DELETE CASCADE
+                ON UPDATE CASCADE,
+            CHECK (length(projectId) >= 10)
         );
     """)
 
@@ -125,7 +133,10 @@ def create_purchases_table(wsual_db):
             receiptId INTEGER PRIMARY KEY,
             cost REAL NOT NULL,
             studentWage REAL NOT NULL,
-            compBuyer VARCHAR(50) NOT NULL
+            compBuyer VARCHAR(50) NOT NULL,
+            CHECK (receiptId > 0),
+            CHECK (cost > 0),
+            CHECK (studentWage > 0)
         );
     """)
 
@@ -139,9 +150,16 @@ def create_contracts_table(wsual_db):
             endDate TEXT NOT NULL,
             projectId VARCHAR(50) NOT NULL,
             receiptId INTEGER NOT NULL,
-            FOREIGN KEY(companyName) REFERENCES Companies(companyName),
+            FOREIGN KEY(companyName) REFERENCES Companies(companyName)
+                ON DELETE CASCADE
+                ON UPDATE CASCADE,
             FOREIGN KEY(projectId) REFERENCES Projects(projectId)
+                ON DELETE CASCADE
+                ON UPDATE CASCADE,
             FOREIGN KEY(receiptId) REFERENCES Purchases(receiptId)
+                ON DELETE CASCADE
+                ON UPDATE CASCADE,
+            CHECK (length(contractId) >= 5)
         );
     """)
 
@@ -156,6 +174,9 @@ def create_locations_table(wsual_db):
             zipcode VARCHAR(10) NOT NULL,
             companyName VARCHAR(50) NOT NULL,
             FOREIGN KEY(companyName) REFERENCES Companies(companyName)
+                ON DELETE CASCADE
+                ON UPDATE CASCADE,
+            CHECK (length(locationId) >= 5)
         );
     """)
 
@@ -170,8 +191,13 @@ def create_students_table(wsual_db):
             graduationDate TEXT NOT NULL,
             skillSetId INTEGER NOT NULL,
             locationId VARCHAR(50) NOT NULL,
-            FOREIGN KEY(skillSetId) REFERENCES SkillSets(skillSetId),
+            FOREIGN KEY(skillSetId) REFERENCES SkillSets(skillSetId)
+                ON DELETE CASCADE
+                ON UPDATE CASCADE,
             FOREIGN KEY(locationId) REFERENCES Locations(locationId)
+                ON DELETE CASCADE
+                ON UPDATE CASCADE,
+            CHECK (length(studentId) = 8)
         );
     """)
 
@@ -186,9 +212,16 @@ def create_contains_relation(wsual_db):
             skillSetId INTEGER NOT NULL,
             skillName VARCHAR(50) NOT NULL,
             skillLevel VARCHAR(30) NOT NULL,
-            FOREIGN KEY(skillSetId) REFERENCES SkillSets(skillSetId),
-            FOREIGN KEY(skillName, skillLevel) REFERENCES Skills(skillName, skillLevel),
-            PRIMARY KEY(skillSetId, skillName, skillLevel)
+            FOREIGN KEY(skillSetId) REFERENCES SkillSets(skillSetId)
+                ON DELETE CASCADE
+                ON UPDATE CASCADE,
+            FOREIGN KEY(skillName, skillLevel) REFERENCES Skills(skillName, skillLevel)
+                ON DELETE CASCADE
+                ON UPDATE CASCADE,
+            PRIMARY KEY(skillSetId, skillName, skillLevel),
+            CHECK (skillSetId > 0),
+            CHECK (length(skillName) >= 2),
+            CHECK (length(skillLevel) >= 3)
         );
     """)
 
