@@ -78,7 +78,13 @@ def execute_statement(wsual_db):
     Prompt user for a SQL statement, then
     execute it
     """
-    statement = input("Please enter a statement: ")
+    print("Please enter a blank line to end your statement:")
+    statement = ""
+    line = " "
+
+    while line != "":
+        line = input("> ")
+        statement = statement + " " + line
 
     # Pretty print the fetched data
     pprint(execute(wsual_db, statement))

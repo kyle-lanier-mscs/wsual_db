@@ -17,8 +17,15 @@ def ui():
     >>> [1]: Execute Statement
     >>> [2]: Print Table
     >>> 1
-    >>> Please enter a statement: SELECT * FROM Students WHERE studentName='Kyle'
-    >>> [('y839k364', 'Kyle', 'CS', 'Graduate', '2021-05-25', 1, 'WSU Wichita')]
+    >>>
+    >>> Please enter a blank line to end your statement:
+    >>> SELECT S.studentName, T.date
+    >>> FROM Students as S
+    >>> JOIN Skillsets as T
+    >>> ON S.skillSetId=T.skillSetId
+    >>> WHERE S.studentName='Kyle'
+    >>>
+    [('Kyle', '2020-04-25')]
     >>>
     >>>
     >>> ---------WSUAL DB---------
