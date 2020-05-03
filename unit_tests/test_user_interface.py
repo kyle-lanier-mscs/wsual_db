@@ -49,6 +49,7 @@ class TestUserInterface(TestCase):
         a valid statment
         """
         input_return_values = [
+            "",
             """
             SELECT studentName from Students
             WHERE studentName='Kyle'
@@ -190,7 +191,7 @@ class TestUserInterface(TestCase):
         the user selects option '0'
         """
         input_return_values = [
-            '0', 'SELECT T', '1'
+            '0', "", 'SELECT T', '1'
         ]
 
         _input.side_effect = lambda x: input_return_values.pop()
