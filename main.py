@@ -16,13 +16,11 @@ for interactions with the pysqlite database
 >>> 1
 >>>
 >>> Please enter a blank line to end your statement:
->>> SELECT S.studentName, T.date
->>> FROM Students as S
->>> JOIN Skillsets as T
->>> ON S.skillSetId=T.skillSetId
->>> WHERE S.studentName='Kyle'
->>>
-[('Kyle', '2020-04-25')]
+>>> SELECT *
+>>> FROM Students
+>>> WHERE SName='Joe'
+>
+[(1, 'Joe', 2020, 10)]
 >>>
 >>> ---------WSUAL DB---------
 >>> [0]: Exit
@@ -31,26 +29,14 @@ for interactions with the pysqlite database
 >>> 2
 >>>
 >>> Pleasse select a table:
->>> [0]: Skills
->>> [1]: SkillSets
->>> [2]: Companies
->>> [3]: Projects
->>> [4]: Purchases
->>> [5]: Contracts
->>> [6]: Locations
->>> [7]: Students
->>> [8]: Contains
+>>> [0]: Departments
+>>> [1]: Courses
+>>> [2]: Students
 >>> 0
-skillName VARCHAR(50)    skillLevel VARCHAR(30)   description VARCHAR(50)
-Python                   High                     CS Programming
-Power BI                 Medium                   Data Analytics
-AWS                      Low                      Cloud Services
-Office 365               Medium                   Microsoft Applications
-Technical Support        Medium                   Support Services
-Azure                    Low                      Cloud Services
-C#                       Low                      CS Programming
-Customer Service         High                     Support Services
-MySQL                    Low                      Data Analytics
+DId INTEGER        DName VARCHAR(30)  Abbr VARCHAR(5)
+10                 Computer Science   CS
+20                 Mathematics        Math
+30                 English            Engl
 
 """
 
