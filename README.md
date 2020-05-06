@@ -1,11 +1,8 @@
 # WSU_ALDB
 WSU Applied Learning Database
-[![Run on Repl.it](https://repl.it/badge/github/kyle_lanier/wsual_db)](https://repl.it/github/kyle-lanier-mscs/cs665)
-![Python application](https://github.com/kyle-lanier-mscs/wsual_db/workflows/Python%20application/badge.svg?branch=CS665)
-![Coverage](https://github.com/kyle-lanier-mscs/wsual_db/blob/CS665/resources/coverage.svg)
 
 * This repository represents the Wichita State University Applied Learning database
-* This repository is front-ended with repl, you can access the interfaces here: [CS665](https://cs665.kyle-lanier.repl.run)
+* This repository is front-ended with repl, you can access the interfaces here: [CS665](https://CS665.kyle-lanier.repl.run)
 * This repository is developed by TDD serverless CICD build processes
 * Flake8 linting, unittests, and coverage are enforced for build quality
 * Compatible with Python 3.6.x, Windows, Linux, Mac
