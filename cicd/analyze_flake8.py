@@ -30,7 +30,7 @@ import os
 
 
 if __name__ == '__main__':
-    os.system('pip install flake8')
+    os.system('python -m pip install flake8')
     print('\nExecuting Flake8 Linting Analysis\n')
 
     # Check for Python syntax errors or undefined names

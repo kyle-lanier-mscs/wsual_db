@@ -31,8 +31,8 @@ import os
 
 
 if __name__ == '__main__':
-    os.system('pip install coverage')
-    os.system('pip install coverage-badge')
+    os.system('python -m pip install coverage')
+    os.system('python -m pip install coverage-badge')
 
     print('\nExecuting Test Driven Development UnitTests\n')
     os.system(f"coverage run ./cicd/test_suite.py")

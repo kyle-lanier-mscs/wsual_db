@@ -26,8 +26,8 @@ import os
 
 if __name__ == '__main__':
     print('\nExecuting Sphinx Document Generation\n')
-    os.system('pip install sphinx')
-    os.system('pip install python-dotenv')
+    os.system('python -m pip install sphinx')
+    os.system('python -m pip install python-dotenv')
 
     os.system(f"sphinx-apidoc -o {os.path.join('sphinx')} .")
     os.system(f"sphinx-build -b html {os.path.join('sphinx')} {os.path.join('sphinx', '_build')}")
