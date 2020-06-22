@@ -3,7 +3,7 @@ File: analyze_flake8.py
 Date: 4.14.2020
 Author: Kyle Lanier
 
-Purpose:
+Porpose:
 This file is an abstraction from the .github workflows cicd.yml
 and its purpose is to analyze flake8 linting errors locally in
 the repository. The cicd.yml is used in the github docker runtime
@@ -30,9 +30,19 @@ import os
 
 
 if __name__ == '__main__':
-    os.system('python -m pip install flake8')
+    os.system('pip install flake8')
     print('\nExecuting Flake8 Linting Analysis\n')
 
     # Check for Python syntax errors or undefined names
-    os.system('flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics')
-    os.system('flake8 . --count --max-complexity=10 --max-line-length=127 --statistics')
+    os.system(
+        "flake8"
+        f" {os.path.abspath(os.path.join(__file__ ,'../..'))}"
+        " --count --select=E9,F63,F7,F82 --show-source --statistics"
+        " --exclude=.venv"
+    )
+    os.system(
+        "flake8"
+        f" {os.path.abspath(os.path.join(__file__ ,'../..'))}"
+        " --count --max-complexity=10 --max-line-length=127 --statistics"
+        " --exclude=.venv"
+    )
