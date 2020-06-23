@@ -38,7 +38,14 @@ class TestUserInterface(TestCase):
         """
         To be executed prior to every test case
         """
-        self.db = PySQLLite("database/WSU_AL.db")
+        db_location = os.path.join(
+            os.path.join(
+                os.path.abspath(os.path.join(__file__, '../..')),
+                'database'
+            ),
+            'WSU_AL.db'
+        )
+        self.db = PySQLLite(db_location)
 
     @patch('modules.user_interface.input')
     @patch('modules.user_interface.pprint', side_effect=MagicMock(pprint))

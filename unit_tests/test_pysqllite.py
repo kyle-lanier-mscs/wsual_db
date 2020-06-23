@@ -36,7 +36,14 @@ class TestPySQLLite(TestCase):
         """
         To execute before each unittest
         """
-        self.db = PySQLLite("database/TEST_WSU_AL.db")
+        db_location = os.path.join(
+            os.path.join(
+                os.path.abspath(os.path.join(__file__, '../..')),
+                'database'
+            ),
+            'TEST_WSU_AL.db'
+        )
+        self.db = PySQLLite(db_location)
         self.db.execute("""
             CREATE TABLE IF NOT EXISTS DemoTable (
                 id INT PRIMARY KEY,
