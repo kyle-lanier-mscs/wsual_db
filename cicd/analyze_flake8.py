@@ -3,7 +3,7 @@ File: analyze_flake8.py
 Date: 4.14.2020
 Author: Kyle Lanier
 
-Porpose:
+Purpose:
 This file is an abstraction from the .github workflows cicd.yml
 and its purpose is to analyze flake8 linting errors locally in
 the repository. The cicd.yml is used in the github docker runtime
