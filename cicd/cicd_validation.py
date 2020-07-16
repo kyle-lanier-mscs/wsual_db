@@ -3,7 +3,7 @@ File: cicd_validation.py
 Date: 4.15.2020
 Author: Kyle Lanier
 
-Porpose:
+Purpose:
 Its purpose is to serve the developer as a single point of
 entry to execute and validate flake8, unittests, and code
 coverage.
