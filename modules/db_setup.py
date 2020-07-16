@@ -32,7 +32,15 @@ def setup_db():
     Recreate the database tables, relations, and records
     return the created database for unittest validation
     """
-    wsual_db = PySQLLite("database/WSU_AL.db")
+    db_location = os.path.join(
+        os.path.join(
+            os.path.abspath(os.path.join(__file__, '../..')),
+            'database'
+        ),
+        'WSU_AL.db'
+    )
+
+    wsual_db = PySQLLite(db_location)
 
     create_tables(wsual_db)
     tables = [

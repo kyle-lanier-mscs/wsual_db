@@ -31,10 +31,14 @@ parent, top = file.parent, file.parents[1]
 sys.path.append(os.path.join(top, ''))
 
 # now import the unittest files from the higher directory
-from unit_tests.test_placeholder_module import TestPlaceholderModule  # noqa: F401, E402
-from unit_tests.test_pysqllite import TestPySQLLite  # noqa: F401, E402
-from unit_tests.test_db_setup import TestDbSetup  # noqa: F401, E402
-from unit_tests.test_user_interface import TestUserInterface  # noqa: F401, E402
+from unit_tests.test_placeholder_module \
+    import TestPlaceholderModule  # noqa: F401, E402
+from unit_tests.test_pysqllite \
+    import TestPySQLLite  # noqa: F401, E402
+from unit_tests.test_db_setup \
+    import TestDbSetup  # noqa: F401, E402
+from unit_tests.test_user_interface \
+    import TestUserInterface  # noqa: F401, E402
 
 
 main(exit=False)

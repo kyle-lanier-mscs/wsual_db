@@ -3,7 +3,7 @@ File: analyze_coverage.py
 Date: 4.15.2020
 Author: Kyle Lanier
 
-Purpose:
+Porpose:
 This file is an abstraction from the .github workflows cicd.yml
 where within the cicd.yml we use Pytest to validate unit testing
 within the build workflow. We use Pytest in the cicd.yml instead
@@ -19,7 +19,7 @@ reports.
 This file can be executed locally from the root directory
 prior to the submission of pull or merge requests.
 
-Process:e
+Process:
 First we import the necessary modules. Then we use the coverage
 module to execute and analyze all unittests. A .coverage report
 is then generated and converted into a bage for use within the
@@ -35,11 +35,25 @@ if __name__ == '__main__':
     os.system('pip install coverage-badge')
 
     print('\nExecuting Test Driven Development UnitTests\n')
-    os.system("coverage run ./cicd/test_suite.py")
+    root_dir = os.path.join(
+        os.path.dirname(os.path.realpath(__file__)),
+        'test_suite.py'
+    )
+    os.system(f"coverage run {root_dir}")
 
     print('\nExecuting Coverage Report\n')
     os.system('coverage report -m --omit=*\\__init__.py')
 
     print('\nGenerating Coverage Badge\n')
-    os.system(f"coverage-badge -o {os.path.join('resources', 'coverage.svg')} -f")
+    coverage_svg = os.path.join(
+        os.path.join(
+            os.path.abspath(os.path.join(__file__, '../..')),
+            'resources'
+        ),
+        'coverage.svg'
+    )
+    os.system(
+        f"coverage-badge -o {coverage_svg} -f"
+    )
+
     os.system('coverage erase')

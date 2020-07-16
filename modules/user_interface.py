@@ -28,9 +28,17 @@ def ui():
     Capstone user interface method for
     interactions with the pysqlite database
     """
+    db_location = os.path.join(
+        os.path.join(
+            os.path.abspath(os.path.join(__file__, '../..')),
+            'database'
+        ),
+        'WSU_AL.db'
+    )
+
     while True:
         # Connect to a database
-        wsual_db = PySQLLite("database/WSU_AL.db")
+        wsual_db = PySQLLite(db_location)
         try:
             print("\n---------WSUAL DB---------")
             ui_options()
