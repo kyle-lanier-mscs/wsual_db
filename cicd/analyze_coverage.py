@@ -35,7 +35,7 @@ if __name__ == '__main__':
     os.system('pip install coverage-badge')
 
     print('\nExecuting Test Driven Development UnitTests\n')
-    os.system(f"coverage run ./cicd/test_suite.py")
+    os.system("coverage run ./cicd/test_suite.py")
 
     print('\nExecuting Coverage Report\n')
     os.system('coverage report -m --omit=*\\__init__.py')
