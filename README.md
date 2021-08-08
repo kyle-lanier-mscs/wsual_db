@@ -39,12 +39,14 @@ The Entity Relationship Diagram and details for this repository are as follows.
 
 ## Installation
 ```javascript
-First install python and pip because this program will automatically execute pip commands
-to install packages based on how you use this repository. After you download or cloan this 
-repository, use your commandline to change directory into the root folder and execute main.py
+This program requires python. Having installed python3.x, execute the following to automatically
+create the virtual environment.
 
-* Python3
-* pip
+>python ./cicd/venv_setup.py
+
+Set your python path to the python location installed .venv environment, then execute main.py
+
+(.venv)>python main.py
 ```
 
 ## CICD
