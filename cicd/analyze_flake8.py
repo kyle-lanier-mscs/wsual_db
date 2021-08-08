@@ -30,8 +30,7 @@ import os
 
 
 if __name__ == '__main__':
-    os.system('pip install flake8')
-    print('\nExecuting Flake8 Linting Analysis\n')
+    print('\nExecuting Flake8 Linting\n')
 
     # Check for Python syntax errors or undefined names
     os.system(
@@ -40,6 +39,7 @@ if __name__ == '__main__':
         " --count --select=E9,F63,F7,F82 --show-source --statistics"
         " --exclude=.venv"
     )
+
     os.system(
         "flake8"
         f" {os.path.abspath(os.path.join(__file__ ,'../..'))}"
