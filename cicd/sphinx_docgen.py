@@ -35,12 +35,16 @@ if __name__ == '__main__':
         os.path.abspath(os.path.join(__file__, '../..')),
         'sphinx'
     )
+
     sphinx_build = os.path.join(
         sphinx,
         '_build'
     )
+
     os.system(f"sphinx-apidoc -o {sphinx} .")
+
     os.system(f"sphinx-build -b html {sphinx} {sphinx_build}")
+
     print('\nExecuting Hosting Serivice Sync\n')
     # from dotenv import load_dotenv
     # load_dotenv()

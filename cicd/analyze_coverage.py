@@ -31,14 +31,13 @@ import os
 
 
 if __name__ == '__main__':
-    os.system('pip install coverage')
-    os.system('pip install coverage-badge')
-
     print('\nExecuting Test Driven Development UnitTests\n')
+
     root_dir = os.path.join(
         os.path.dirname(os.path.realpath(__file__)),
         'test_suite.py'
     )
+
     os.system(f"coverage run {root_dir}")
 
     print('\nExecuting Coverage Report\n')
@@ -52,6 +51,7 @@ if __name__ == '__main__':
         ),
         'coverage.svg'
     )
+
     os.system(
         f"coverage-badge -o {coverage_svg} -f"
     )

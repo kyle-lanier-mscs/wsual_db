@@ -20,14 +20,18 @@ import os
 
 if __name__ == '__main__':
     print('\nExecuting Flake8 Linting Validation\n')
+
     f8 = 'analyze_flake8.py'
+
     os.system(
         "python "
         f"{os.path.join(os.path.dirname(os.path.realpath(__file__)), f8)}"
     )
 
     print('\nExecuting Unittests and Coverage\n')
+
     ac = 'analyze_coverage.py'
+
     os.system(
         "python "
         f"{os.path.join(os.path.dirname(os.path.realpath(__file__)), ac)}"
